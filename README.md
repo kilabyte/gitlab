@@ -1,12 +1,4 @@
-# GitLab CE for ARM
-
-[![pipeline status](https://gitlab.com/ulm0/gitlab/badges/master/pipeline.svg)](https://gitlab.com/ulm0/gitlab/commits/master) [![](https://images.microbadger.com/badges/version/ulm0/gitlab.svg)](https://microbadger.com/images/ulm0/gitlab "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/ulm0/gitlab.svg)](https://microbadger.com/images/ulm0/gitlab "Get your own image badge on microbadger.com") [![Docker Pulls](https://img.shields.io/docker/pulls/ulm0/gitlab.svg)](https://hub.docker.com/r/ulm0/gitlab/)
-
-GitLab CE for ARM is in Docker Hub:
-
-- [ulm0/gitlab](https://hub.docker.com/r/ulm0/gitlab/)
-
-The GitLab Docker image is a monolithic image of GitLab running all the necessary services on a single container.
+# GitLab CE for RasPi 4
 
 **GitLab only offers the Community Edition for Raspbery Pi**, this Docker image is based on that one; in addition, **only stable builds are containerized**.
 
@@ -38,7 +30,7 @@ docker run -d \
 -v /srv/gitlab/config:/etc/gitlab \
 -v /srv/gitlab/logs:/var/log/gitlab \
 -v /srv/gitlab/data:/var/opt/gitlab \
-ulm0/gitlab
+kilabyte/gitlab-pi:latest
 ```
 
 This will download and start a GitLab CE container and publish ports needed to
@@ -59,7 +51,7 @@ docker run -d \
 -v /srv/gitlab/config:/etc/gitlab:Z \
 -v /srv/gitlab/logs:/var/log/gitlab:Z \
 -v /srv/gitlab/data:/var/opt/gitlab:Z \
-ulm0/gitlab
+kilabyte/gitlab-pi:latest
 ```
 
 This will ensure that the Docker process has enough permissions to create the
@@ -141,7 +133,7 @@ docker run -d \
 -v /srv/gitlab/config:/etc/gitlab \
 -v /srv/gitlab/logs:/var/log/gitlab \
 -v /srv/gitlab/data:/var/opt/gitlab \
-ulm0/gitlab
+kilabyte/gitlab-pi:latest
 ```
 
 Note that every time you execute a `docker run` command, you need to provide
@@ -180,7 +172,7 @@ To upgrade GitLab to a new version you have to:
 3. Pull the new image:
 
     ```bash
-    docker pull ulm0/gitlab
+    docker pull kilabyte/gitlab-pi:latest
     ```
 
 4. Create the container once again with previously specified options:
@@ -194,7 +186,7 @@ To upgrade GitLab to a new version you have to:
     -v /srv/gitlab/config:/etc/gitlab \
     -v /srv/gitlab/logs:/var/log/gitlab \
     -v /srv/gitlab/data:/var/opt/gitlab \
-    ulm0/gitlab
+    kilabyte/gitlab-pi:latest
     ```
 
 On the first run, GitLab will reconfigure and update itself.
@@ -205,10 +197,10 @@ We provide tagged versions of GitLab Docker images.
 
 To see all available tags check:
 
-- [GitLab tags](https://hub.docker.com/r/ulm0/gitlab/tags/)
+- [GitLab tags](https://hub.docker.com/r/kilabyte/gitlab-pi:latest/tags/)
 
-To use a specific tagged version, replace `ulm0/gitlab` with
-the GitLab version you want to run, for example `ulm0/gitlab:10.3.3`.
+To use a specific tagged version, replace `kilabyte/gitlab-pi:latest` with
+the GitLab version you want to run, for example `kilabyte/gitlab-pi:latest:10.3.3`.
 
 ### Run GitLab CE on public IP address
 
@@ -228,7 +220,7 @@ docker run -d \
 -v /srv/gitlab/config:/etc/gitlab \
 -v /srv/gitlab/logs:/var/log/gitlab \
 -v /srv/gitlab/data:/var/opt/gitlab \
-ulm0/gitlab
+kilabyte/gitlab-pi:latest
 ```
 
 You can then access your GitLab instance at `http://1.1.1.1/` and `https://1.1.1.1/`.
@@ -266,7 +258,7 @@ docker run -d \
 -v /srv/gitlab/config:/etc/gitlab \
 -v /srv/gitlab/logs:/var/log/gitlab \
 -v /srv/gitlab/data:/var/opt/gitlab \
-ulm0/gitlab
+kilabyte/gitlab-pi:latest
 ```
 
 You then need to appropriately configure `gitlab.rb`:
@@ -325,7 +317,7 @@ Docker-based GitLab installation.
 
     ```yaml
     web:
-      image: 'ulm0/gitlab'
+      image: 'kilabyte/gitlab-pi:latest'
       restart: always
       hostname: 'gitlab.example.com'
       environment:
@@ -354,7 +346,7 @@ HTTP and SSH port. Notice how the `GITLAB_OMNIBUS_CONFIG` variables match the
 
 ```yaml
 web:
-  image: 'ulm0/gitlab'
+  image: 'kilabyte/gitlab-pi:latest'
   restart: always
   hostname: 'gitlab.example.com'
   environment:
