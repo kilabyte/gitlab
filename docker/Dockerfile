@@ -1,5 +1,5 @@
 FROM arm32v7/ubuntu
-LABEL maintainer "Pierre Ugaz <ulm0@innersea.xyz>"
+LABEL maintainer "kilabyte"
 SHELL ["/bin/sh", "-c"],
 ENV LANG=C.UTF-8
 # Install required packages

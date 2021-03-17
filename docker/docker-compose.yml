@@ -1,7 +1,7 @@
 version: "2.4"
 services:
   web:
-    image: 'ulm0/gitlab'
+    image: 'kilabyte/gitlab'
     restart: always
     hostname: 'gitlab.example.com'
     environment:
@@ -12,6 +12,6 @@ services:
       - '443:443'
       - '22:22'
     volumes:
-      - '/srv/gitlab/config:/etc/gitlab'
-      - '/srv/gitlab/logs:/var/log/gitlab'
-      - '/srv/gitlab/data:/var/opt/gitlab'
+      - '/srv/config:/etc/gitlab'
+      - '/srv/logs:/var/log/gitlab'
+      - '/srv/data:/var/opt/gitlab'
